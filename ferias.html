@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <Head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <style>
+      	body {background-image: url("Vacation-Thinkstock.jpg");
+  	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: 100%;}
+      	h1 {text-align: right;
+	line-height: 0.1;
+	padding-top: 15px;
+	font-size: 70px}
+      	div {font-size: 50px;
+	padding: 0px;}
+	#content {position: relative; 
+	position: absolute; bottom: 5px; right: 5px; text-align: right; background-color: rgba(255,255,255,0.5);}
+	#days {text-align: right; font-size: 100px; font-weight: bold; padding-right: 120px}
+    </style>
+    <title>Dias da Ju sem férias</title>
+  </Head>
+  <body>
+   	<script>
+		function update(){
+			const now = new Date(); // Data de hoje
+			const past = new Date('2021-11-03'); // Outra data no passado
+			const diff = Math.abs(now.getTime() - past.getTime());
+			const secs = now.getSeconds();
+			const mins = now.getMinutes();
+			const hours = now.getHours();
+			const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+			document.body.innerHTML = "<h1>A Juliana está a </h1>" +
+    			"<div id='days'>" + days + "</div>" + "<h1>Dias Sem Tirar Férias</h1>" +
+			"<div id='content'>Recorde: " + days + " dias, " + hours + " Horas " + mins + " Minutos e " + secs + " Segundos</div>"
+		}
+		update();
+		timer = setInterval(update, 1000);
+
+	</script>
+    
+  </body>
+
+
+</html>
